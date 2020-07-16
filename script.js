@@ -22,14 +22,22 @@ console.log(dialog);
 let startUserNumber = +prompt("Введите меньшее число");
 let finishUserNumber = +prompt("Введите большее число");
 
-while (String(startUserNumber) === "NaN"
-	|| String(finishUserNumber) === "NaN"
-	|| startUserNumber >= finishUserNumber) {
+while (Number.isNaN(startUserNumber)
+|| Number.isNaN(finishUserNumber)
+|| startUserNumber >= finishUserNumber) {
 	startUserNumber = +prompt("Введите меньшее число ещё раз");
 	finishUserNumber = +prompt("Введите большее число ещё раз");
 }
 
+// with continue
+// for (i = startUserNumber; i <= finishUserNumber; i++) {
+// 	if (i % 2 && i % 5) continue;
+// 	console.log(i);
+// }
+
+//without continue
 for (i = startUserNumber; i <= finishUserNumber; i++) {
-	if (i % 2 && i % 5) continue;
-	console.log(i);
+	if (i % 2 === 0 || i % 5 === 0) {
+		console.log(i);
+	}
 }
